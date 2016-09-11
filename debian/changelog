@@ -104,14 +104,14 @@ libqtshadowsocks (1.4.2-1) stable; urgency=medium
   * use QPair to simplify Address class
   * replace CacheKey with a QPair class
 
- -- Symeon Huang <symeon@odroid-u3>  Wed, 05 Mar 2015 20:40:00 +0000
+ -- Symeon Huang <hzwhuang@gmail.com>  Wed, 05 Mar 2015 20:40:00 +0000
 
 libqtshadowsocks (1.4.1-1) stable; urgency=medium
 
   * minor improvements
   * fix udp issues
 
- -- Symeon Huang <symeon@odroid-u3>  Wed, 04 Feb 2015 12:46:00 +0000
+ -- Symeon Huang <hzwhuang@gmail.com>  Wed, 04 Feb 2015 12:46:00 +0000
 
 libqtshadowsocks (1.4.0-1) stable; urgency=medium
 
@@ -119,14 +119,14 @@ libqtshadowsocks (1.4.0-1) stable; urgency=medium
   * randomly pick an IP address for server.
   * add speed test function to shadowsocks-libqss.
 
- -- Symeon Huang <symeon@odroid-u3>  Tue, 27 Jan 2015 20:02:30 +0000
+ -- Symeon Huang <hzwhuang@gmail.com>  Tue, 27 Jan 2015 20:02:30 +0000
 
 libqtshadowsocks (1.3-1) stable; urgency=medium
 
   * split into several binary packages.
   * build shadowsocks-libqss as well (shadowsocks-libqtshadowsocks)
 
- -- Symeon Huang <symeon@odroid-u3>  Sun, 18 Jan 2015 21:48:57 +0000
+ -- Symeon Huang <hzwhuang@gmail.com>  Sun, 18 Jan 2015 21:48:57 +0000
 
 libqtshadowsocks (1.2-1) stable; urgency=medium
 
@@ -134,10 +134,10 @@ libqtshadowsocks (1.2-1) stable; urgency=medium
   * Add ChaCha20 support (using bundled copy if botan < 1.11).
   * Support different botan version.
 
- -- Symeon Huang <symeon@odroid-u3>  Thu, 8 Jan 2015 12:06:15 +0000
+ -- Symeon Huang <hzwhuang@gmail.com>  Thu, 8 Jan 2015 12:06:15 +0000
 
 libqtshadowsocks (1.0-1) stable; urgency=medium
 
   * first release.
 
- -- Symeon Huang <symeon@odroid-u3>  Sun, 14 Dec 2014 18:22:01 +0000
+ -- Symeon Huang <hzwhuang@gmail.com>  Sun, 14 Dec 2014 18:22:01 +0000

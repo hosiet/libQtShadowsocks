@@ -9,23 +9,38 @@ Build-Depends: debhelper (>= 9),
                libbotan1.10-dev
 Standards-Version: 3.9.8
 Homepage: https://github.com/librehat/libQtShadowsocks
-Vcs-Git: https://github.com/librehat/libQtShadowsocks
+Vcs-Git: https://github.com/librehat/libQtShadowsocks.git
 Vcs-Browser: https://github.com/librehat/libQtShadowsocks
 
-Package: libqtshadowsocks0
+Package: libqtshadowsocks1
 Section: libs
+Multi-Arch: same
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}
-Description: A lightweight and ultra-fast shadowsocks library written in C++/Qt
+Description: Lightweight and ultra-fast shadowsocks library written in C++/Qt
+ libQtShadowsocks provides a lightweight and fast implementation of
+ shadowsocks protocol. This library is written in C++ using Qt.
+ .
+ This package provides the library files.
 
 Package: libqtshadowsocks-dev
 Section: libdevel
 Architecture: any
-Depends: ${shlibs:Depends}, ${misc:Depends}, libqtshadowsocks0
+Depends: ${shlibs:Depends}, ${misc:Depends}, libqtshadowsocks1 (= ${binary:Version})
 Description: Development files of libQtShadowsocks
+ libQtShadowsocks provides a lightweight and fast implementation of
+ shadowsocks protocol. This library is written in C++ using Qt.
+ .
+ This package provides the development files.
+
 
 Package: shadowsocks-libqtshadowsocks
 Section: net
 Architecture: any
-Depends: ${shlibs:Depends}, ${misc:Depends}, libqtshadowsocks0
-Description: A CLI shadowsocks client using libQtShadowsocks
+Depends: ${shlibs:Depends}, ${misc:Depends}, libqtshadowsocks1
+Description: Another CLI shadowsocks client using libQtShadowsocks
+ libQtShadowsocks provides a lightweight and fast implementation of
+ shadowsocks protocol. This library is written in C++ using Qt.
+ .
+ This package provides a simple cli shadowsocks client.
+

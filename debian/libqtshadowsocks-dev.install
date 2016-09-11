@@ -1,2 +1,3 @@
-usr/lib/pkgconfig/QtShadowsocks.pc
 usr/include/qtshadowsocks/*
+usr/lib/*/pkgconfig/
+usr/lib/*/libQtShadowsocks.so

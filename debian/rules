@@ -1,12 +1,11 @@
 #!/usr/bin/make -f
+# See debhelper(7) (uncomment to enable)
+# output every command that modifies files on the build system.
+#export DH_VERBOSE = 1
 
+# Security Hardening
+export DEB_BUILD_MAINT_OPTIONS = hardening=+all
 export QT_SELECT := qt5
 
 %:
 	dh $@ --parallel
-
-override_dh_auto_configure:
-	qmake
-
-override_dh_auto_install-indep:
-	make INSTALL_ROOT=$(CURDIR)/debian/tmp
