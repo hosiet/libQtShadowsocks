@@ -1,0 +1,36 @@
+From: Boyuan Yang <073plan@gmail.com>
+Date: Wed, 14 Sep 2016 14:22:51 +0800
+Subject: fix subproject header searching path.
+
+When configuring using dh_auto_configure, .qmake.conf is not
+respected. As a result, we need to patch the buildsystem
+to manually find the built header files and libraries.
+---
+ shadowsocks-libqss/shadowsocks-libqss.pro | 1 +
+ test/test.pro                             | 1 +
+ 2 files changed, 2 insertions(+)
+
+diff --git a/shadowsocks-libqss/shadowsocks-libqss.pro b/shadowsocks-libqss/shadowsocks-libqss.pro
+index b257d6d..72ec4c0 100644
+--- a/shadowsocks-libqss/shadowsocks-libqss.pro
++++ b/shadowsocks-libqss/shadowsocks-libqss.pro
+@@ -69,6 +69,7 @@ win32: {
+     else:            LIBS += -L../lib/debug
+ }
+ INCLUDEPATH     += $$top_srcdir/../lib
++INCLUDEPATH     += ../lib
+ LIBS            += -L$$top_srcdir/../lib \
+                    -L../lib \
+                    -lQtShadowsocks \
+diff --git a/test/test.pro b/test/test.pro
+index 6a3c7b7..6d1534c 100644
+--- a/test/test.pro
++++ b/test/test.pro
+@@ -46,6 +46,7 @@ win32: {
+     else:            LIBS += -L../lib/debug
+ }
+ INCLUDEPATH     += $$top_srcdir/../lib
++INCLUDEPATH     += ../lib
+ LIBS            += -L$$top_srcdir/../lib \
+                    -L../lib \
+                    -lQtShadowsocks \
