@@ -1,1 +1,2 @@
-usr/lib/*/libQtShadowsocks.so.*
+#! /usr/bin/dh-exec
+usr/lib/libQtShadowsocks.so.* usr/lib/${DEB_HOST_MULTIARCH}/

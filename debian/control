@@ -2,45 +2,53 @@ Source: libqtshadowsocks
 Section: libs
 Priority: extra
 Maintainer: Symeon Huang <hzwhuang@gmail.com>
-Build-Depends: debhelper (>= 9),
-               pkg-config,
-               qt5-qmake,
-               qtbase5-dev,
-               libbotan1.10-dev
+Build-Depends:
+ debhelper (>= 9),
+ dh-exec,
+ libbotan1.10-dev,
+ pkg-config,
+ qt5-qmake,
+ qtbase5-dev,
 Standards-Version: 3.9.8
 Homepage: https://github.com/librehat/libQtShadowsocks
 Vcs-Git: https://github.com/librehat/libQtShadowsocks.git
 Vcs-Browser: https://github.com/librehat/libQtShadowsocks
 
-Package: libqtshadowsocks1
-Section: libs
-Multi-Arch: same
-Architecture: any
-Depends: ${shlibs:Depends}, ${misc:Depends}
-Description: Lightweight and ultra-fast shadowsocks library written in C++/Qt
- libQtShadowsocks provides a lightweight and fast implementation of
- shadowsocks protocol. This library is written in C++ using Qt.
- .
- This package provides the library files.
-
 Package: libqtshadowsocks-dev
 Section: libdevel
 Architecture: any
-Depends: ${shlibs:Depends}, ${misc:Depends}, libqtshadowsocks1 (= ${binary:Version})
+Depends:
+ libqtshadowsocks1 (= ${binary:Version}),
+ ${misc:Depends},
+ ${shlibs:Depends},
 Description: Development files of libQtShadowsocks
  libQtShadowsocks provides a lightweight and fast implementation of
  shadowsocks protocol. This library is written in C++ using Qt.
  .
  This package provides the development files.
 
+Package: libqtshadowsocks1
+Section: libs
+Multi-Arch: same
+Architecture: any
+Depends:
+ ${misc:Depends},
+ ${shlibs:Depends},
+Description: Lightweight and ultra-fast shadowsocks library written in C++/Qt
+ libQtShadowsocks provides a lightweight and fast implementation of
+ shadowsocks protocol. This library is written in C++ using Qt.
+ .
+ This package provides the library files.
 
 Package: shadowsocks-libqtshadowsocks
 Section: net
 Architecture: any
-Depends: ${shlibs:Depends}, ${misc:Depends}, libqtshadowsocks1
+Depends:
+ libqtshadowsocks1,
+ ${misc:Depends},
+ ${shlibs:Depends},
 Description: Another CLI shadowsocks client using libQtShadowsocks
  libQtShadowsocks provides a lightweight and fast implementation of
  shadowsocks protocol. This library is written in C++ using Qt.
  .
  This package provides a simple cli shadowsocks client.
-
