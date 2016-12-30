@@ -14,19 +14,18 @@ CONFIG   -= app_bundle
 
 TEMPLATE = app
 
-HEADERS += \
-    address.t.h \
-    chacha.t.h \
-    cipher.t.h \
-    profile.t.h
+HEADERS += address.t.h \
+           chacha.t.h \
+           cipher.t.h \
+           profile.t.h \
+           encryptor.t.h
 
-SOURCES += \
-    main.cpp \
-    address.t.cpp \
-    chacha.t.cpp \
-    cipher.t.cpp \
-    profile.t.cpp
-DEFINES += SRCDIR=\\\"$$PWD/\\\"
+SOURCES += main.cpp \
+           address.t.cpp \
+           chacha.t.cpp \
+           cipher.t.cpp \
+           profile.t.cpp \
+           encryptor.t.cpp
 
 isEmpty(BOTAN_VER) {
     BOTAN_VER = 1.10

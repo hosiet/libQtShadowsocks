@@ -46,6 +46,7 @@ void Encryptor::reset()
         deCipher->deleteLater();
         deCipher = nullptr;
     }
+    chunkId = 0;
 }
 
 QByteArray Encryptor::encrypt(const QByteArray &in)
@@ -68,9 +69,13 @@ QByteArray Encryptor::decrypt(const QByteArray &in)
 
     QByteArray out;
     if (!deCipher) {
+        QByteArray iv = in.mid(0, ep.ivLen);
+        if (iv.length() != ep.ivLen) {
+            return out;
+        }
         deCipher = new Cipher(ep.method,
                               ep.key,
-                              in.mid(0, ep.ivLen),
+                              iv,
                               false,
                               this);
         out = deCipher->update(in.mid(ep.ivLen));
@@ -100,20 +105,12 @@ QByteArray Encryptor::decryptAll(const QByteArray &in)
     if (deCipher) {
         deCipher->deleteLater();
     }
-    deCipher = new Cipher(ep.method, ep.key, in.mid(0, ep.ivLen), false, this);
+    QByteArray iv = in.mid(0, ep.ivLen);
+    if (iv.length() != ep.ivLen) {
+        return QByteArray();
+    }
+    deCipher = new Cipher(ep.method, ep.key, iv, false, this);
     return deCipher->update(in.mid(ep.ivLen));
-}
-
-bool Encryptor::selfTest()
-{
-    QByteArray test("barfoo!");
-    QByteArray test2("Hello World!");
-    QByteArray test3("libQtShadowsocks!");
-    QByteArray res  = decrypt(encrypt(test)),
-               res2 = decrypt(encrypt(test2)),
-               res3 = decryptAll(encryptAll(test3));
-    reset();
-    return test == res && test2 == res2 && test3 == res3;
 }
 
 QByteArray Encryptor::deCipherIV() const
@@ -149,8 +146,7 @@ void Encryptor::addChunkAuth(QByteArray &data)
     quint16 len = static_cast<quint16>(data.length());
     QByteArray len_c(2, 0);
     qToBigEndian(len, reinterpret_cast<uchar*>(len_c.data()));
-    data.prepend(authCode);
-    data.prepend(len_c);
+    data.prepend(len_c + authCode);
 }
 
 bool Encryptor::verifyHeaderAuth(const QByteArray &data, const int &headerLen) const
