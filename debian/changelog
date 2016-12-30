@@ -1,3 +1,12 @@
+libqtshadowsocks (1.10.0-2) unstable; urgency=medium
+
+  * Non-maintainer upload.
+  * New upstream release.
+    + With a SONAME bump.
+  * Add a watch file.
+
+ -- Boyuan Yang <073plan@gmail.com>  Fri, 30 Dec 2016 19:26:02 +0800
+
 libqtshadowsocks (1.10.0-1) stable; urgency=medium
 
   * supports tag/remark in ss uri

@@ -2,8 +2,10 @@ Source: libqtshadowsocks
 Section: libs
 Priority: extra
 Maintainer: Symeon Huang <hzwhuang@gmail.com>
+Uploaders:
+ Boyuan Yang <073plan@gmail.com>
 Build-Depends:
- debhelper (>= 9),
+ debhelper (>= 10),
  dh-exec,
  libbotan1.10-dev,
  pkg-config,
@@ -11,8 +13,8 @@ Build-Depends:
  qtbase5-dev,
 Standards-Version: 3.9.8
 Homepage: https://github.com/librehat/libQtShadowsocks
-Vcs-Git: https://github.com/librehat/libQtShadowsocks.git
-Vcs-Browser: https://github.com/librehat/libQtShadowsocks
+Vcs-Git: https://github.com/hosiet/libQtShadowsocks
+Vcs-Browser: https://github.com/hosiet/libQtShadowsocks
 
 Package: libqtshadowsocks-dev
 Section: libdevel
